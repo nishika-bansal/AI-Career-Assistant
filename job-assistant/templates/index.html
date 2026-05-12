@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AI Career Assistant</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>🤖 AI Career Assistant</h1>
+    <p>Smart Job Discovery & Application System</p>
+
+    <form method="POST" action="/search">
+        <input type="text" name="keyword" placeholder="Enter Skill (Java / Python / Full Stack)">
+        <button>Search Jobs</button>
+    </form>
+
+    {% if jobs %}
+    <h2>Recommended Jobs for "{{keyword}}"</h2>
+
+    <div class="grid">
+        {% for job in jobs %}
+        <div class="card">
+
+            <h3>{{job.title}}</h3>
+            <p>{{job.company}} | {{job.location}}</p>
+
+            <button class="btn">Save Job ❤️</button>
+            <button class="btn">Generate Email 📧</button>
+
+        </div>
+        {% endfor %}
+    </div>
+    {% endif %}
+
+</div>
+
+</body>
+</html>
